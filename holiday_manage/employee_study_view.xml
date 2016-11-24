@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="employee_study_view_tree" model="ir.ui.view">
+            <field name="name">tree</field>
+            <field name="model">st.employee</field>
+            <field name="arch" type="xml">
+                <tree string="tree">
+                    <field name="employee_name"/>
+                    <field name="do_allot"/>
+                    <field name="allot_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="employee_study_view_form" model="ir.ui.view">
+            <field name="name">form</field>
+            <field name="model">st.employee</field>
+            <field name="arch" type="xml">
+                <form string="form视图">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_name"/>
+                                <field name="do_allot"/>
+                                <field name="allot_time"/>
+                                <field name="leave_time"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_employee_xml">
+            <field name="name">Daily Model</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">st.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_employee_study" name="员工表" sequence="10"/>
+        <menuitem id="menu_employee_study_test" name="二级页面" parent="menu_employee_study"
+                  sequence="10"/>
+        <menuitem id="menu_employee_study_test_two" name="三级页面" parent="menu_employee_study_test"
+                  sequence="10" action="action_employee_xml"/>
+    </data>
+</openerp>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+        <record id="allot_leave_view_form" model="ir.ui.view">
+            <field name="name">form</field>
+            <field name="model">st.allot.leave</field>
+            <field name="arch" type="xml">
+                <form string="form视图">
+                    <button name="button_allot_leave_code" string="确定" type="object" class="oe_highlight"/>
+
+
+                    <group>
+                        <field name="employee_window_name"/>
+                        <field name="leave_window_time"/>
+
+
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="leave_record">
+            <field name="name">Daily Model</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">st.allot.leave</field>
+            <field name="target">new</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+        <menuitem id="allot_leave" name="请假表" sequence="10"/>
+        <menuitem id="allot_leave_one" name="请假" parent="allot_leave"
+                  sequence="9"/>
+        <menuitem id="allot_leave_two" name="请假表" parent="allot_leave_one"
+                  sequence="10" action="leave_record"/>
+
+
+    </data>
+</openerp>
