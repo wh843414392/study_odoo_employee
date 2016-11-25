@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="user_group_res_group" model="ir.module.category">
+            <field name="name">发假项目</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="holiday_user_group_res_group" model="res.groups">
+            <field name="name">发假用户组</field>
+            <field name="category_id" ref="user_group_res_group"/>
+        </record>
+
+
+
+
+    </data>
+</openerp>

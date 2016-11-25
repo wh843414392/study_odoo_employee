@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="allot_study_view_tree" model="ir.ui.view">
+            <field name="name">tree</field>
+            <field name="model">st.allot</field>
+            <field name="arch" type="xml">
+                <tree string="tree视图">
+                    <field name="company_id"/>
+                    <field name="employee_id"/>
+                    <field name="allot_id_time"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="allot_study_view_form" model="ir.ui.view">
+            <field name="name">form</field>
+            <field name="model">st.allot</field>
+            <field name="arch" type="xml">
+                <form string="form视图">
+                    <header>
+                        <button name="button_write_code" string="发假" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('state','=','done')]}"/>
+
+                        <button name="button_not_write_code" string="撤销" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('state','=','draft')]}"/>
+                        <field name="state" string="草稿" widget="statusbar"/>
+
+                    </header>
+
+                    <group>
+                        <field name="company_id"/>
+                        <field name="employee_id" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                        <field name="allot_id_time" attrs="{'readonly': [('state', '=', 'done')]}"/>
+
+                    </group>
+
+                </form>
+            </field>
+        </record>
+        <record model="ir.sequence" id="action_allot_studytime_xml">
+            <field name="name">allot</field>
+            <field name="code">st.allot</field>
+            <field name="padding">3</field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_allot_study_xml">
+            <field name="name">Daily Model</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">st.allot</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="holiday" name="假期表" sequence="10"/>
+        <menuitem id="holiday_allot" name="发假" parent="holiday"
+                  sequence="9"/>
+        <menuitem id="holiday_allot_two" name="发假表" parent="holiday_allot"
+                  sequence="10" action="action_allot_study_xml"/>
+
+
+    </data>
+</openerp>
