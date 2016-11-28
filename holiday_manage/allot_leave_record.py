@@ -3,21 +3,20 @@ from openerp import _, api, fields, models
 from openerp.exceptions import ValidationError, UserError
 
 
-class Record(models.Model):
+class AllotLeaveRecord(models.Model):
     '''
     请假记录
     '''
+
     _name = 'allot.leave.record'
 
     '''请假时间字段'''
-    code = fields.Char('Code')
+
+    record_datetime = fields.Char('Code.Name')
     '''请假员工'''
-    record_name = fields.Many2one('st.employee')
+
+    record_id = fields.Many2one('st.employee')
 
     '''请假天数字段'''
-    record_time = fields.Integer('Record Time')
 
-
-
-
-
+    record_date = fields.Integer('Record Time')

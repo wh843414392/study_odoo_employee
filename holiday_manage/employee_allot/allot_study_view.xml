@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <tree string="tree视图">
                     <field name="company_id"/>
-                    <field name="employee_id_name"/>
+                    <field name="employee_id"/>
                     <field name="allot_id_time"/>
                     <field name="state"/>
                 </tree>
@@ -31,7 +31,7 @@
 
                     <group>
                         <field name="company_id"/>
-                        <field name="employee_id_name" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                        <field name="employee_id" attrs="{'readonly': [('state', '=', 'done')]}"/>
                         <field name="allot_id_time" attrs="{'readonly': [('state', '=', 'done')]}"/>
 
                     </group>

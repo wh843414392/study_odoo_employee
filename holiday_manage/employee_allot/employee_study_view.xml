@@ -8,7 +8,7 @@
                 <tree string="tree">
                     <field name="employee_name"/>
                     <field name="do_allot"/>
-                    <field name="allot_time"/>
+                    <field name="allot_start_date"/>
                 </tree>
             </field>
         </record>
@@ -23,8 +23,8 @@
                             <group>
                                 <field name="employee_name"/>
                                 <field name="do_allot"/>
-                                <field name="allot_time"/>
-                                <field name="leave_time"/>
+                                <field name="allot_start_date"/>
+                                <field name="leave_ids"/>
 
                             </group>
                         </group>

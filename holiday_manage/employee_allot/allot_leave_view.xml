@@ -12,7 +12,7 @@
 
 
                     <group>
-                        <field name="employee_window_name"/>
+                        <field name="employee_window_id"/>
                         <field name="leave_window_time"/>
 
 

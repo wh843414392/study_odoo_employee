@@ -6,8 +6,8 @@
             <field name="model">allot.leave.record</field>
             <field name="arch" type="xml">
                 <tree string="tree视图">
-                    <field name="code"/>
-                    <field name="record_time"/>
+                    <field name="record_datetime"/>
+                    <field name="record_date"/>
                 </tree>
             </field>
         </record>
