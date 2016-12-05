@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.model.access" id="access_hr_cost_center_user">
+            <field name="name">hr.cost.center.user</field>
+            <field name="model_id" ref="model_st_allot"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field eval="True" name="perm_read"/>
+            <field eval="False" name="perm_write"/>
+            <field eval="False" name="perm_create"/>
+            <field eval="False" name="perm_unlink"/>
+        </record>
+        <record model="ir.model.access" id="access_hr_cost_center_group">
+            <field name="name">hr.cost.center.group</field>
+            <field name="model_id" ref="model_st_allot"/>
+            <field name="group_id" ref="holiday_user_group_res_group"/>
+            <field eval="True" name="perm_read"/>
+            <field eval="True" name="perm_write"/>
+            <field eval="True" name="perm_create"/>
+            <field eval="True" name="perm_unlink"/>
+        </record>
+        <record model="ir.model.access" id="hr_cost_center_group">
+            <field name="name">hr.cost.center.group</field>
+            <field name="model_id" ref="model_st_employee"/>
+            <field name="group_id" ref="holiday_user_group_res_group"/>
+            <field eval="True" name="perm_read"/>
+            <field eval="True" name="perm_write"/>
+            <field eval="False" name="perm_create"/>
+            <field eval="False" name="perm_unlink"/>
+        </record>
+        <record model="ir.model.access" id="allot_leave_record">
+            <field name="name">hr.cost.center.group</field>
+            <field name="model_id" ref="model_allot_leave_record"/>
+            <field name="group_id" ref="holiday_user_group_res_group"/>
+            <field eval="True" name="perm_read"/>
+            <field eval="True" name="perm_write"/>
+            <field eval="True" name="perm_create"/>
+            <field eval="True" name="perm_unlink"/>
+        </record>
+
+        <record id="ir_rule_related_task" model="ir.rule">
+            <field name="name">my task</field>
+            <field name="model_id" ref="model_st_allot"/>
+            <field name="domain_force">[('user_id','=',user.id)]
+            </field>
+            <field name="groups" eval="[(4,ref('holiday_user_group_res_group'))]"/>
+        </record>
+
+
+    </data>
+</openerp>
